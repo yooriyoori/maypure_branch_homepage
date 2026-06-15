@@ -315,6 +315,8 @@ footer .fline{ border-top:1px solid rgba(255,255,255,.08); padding-top:20px; lin
   .branch-chip-grid{ grid-template-columns: repeat(3,1fr); }
   nav.main-nav{ display:none; }
   .side-fab{ display:none; }
+  .mobile-cta{ display:flex; position:fixed; bottom:0; left:0; right:0; z-index:200; background:#fff; border-top:1px solid var(--c-line); padding:12px 16px; gap:10px; box-shadow: 0 -4px 20px rgba(0,0,0,.06); }
+  body{ padding-bottom:70px; }
 }
 
 @media (max-width: 640px){
@@ -324,9 +326,10 @@ footer .fline{ border-top:1px solid rgba(255,255,255,.08); padding-top:20px; lin
   .hero h1{ font-size:34px; }
   .hero h1 .branch-name{ font-size:44px; }
   .quick-info{ margin-top:-30px; }
-  .quick-info .grid{ grid-template-columns: 1fr 1fr; }
-  .quick-info .item{ border-bottom:1px solid var(--c-line); }
+  .quick-info .grid{ grid-template-columns: 1fr; }
+  .quick-info .item{ border-bottom:1px solid var(--c-line); border-right:none; }
   .events-grid, .review-grid, .community-grid{ grid-template-columns: 1fr; }
+  footer .flinks{ flex-wrap:wrap; gap:12px; }
   .branch-chip-grid{ grid-template-columns: repeat(2,1fr); }
   section{ padding:56px 0; }
   .section-head h2{ font-size:24px; }
