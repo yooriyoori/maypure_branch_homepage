@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메이퓨어 강남 | maypure+ 지점 안내</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ==========================================================
+   메이퓨어(maypure) 지점별 페이지 — 공통 템플릿 스타일
+========================================================== */
+
+:root{
+  --c-primary: #FF6E0E;
+  --c-primary-dark: #E0590A;
+  --c-primary-soft: #FFF0E4;
+  --c-mint: #2B2B2B;
+  --c-mint-soft: #F0F0F0;
+  --c-bg: #FAF9F7;
+  --c-card: #FFFFFF;
+  --c-dark: #141414;
+  --c-gray: #6F6B78;
+  --c-gray-light: #B8B5BD;
+  --c-line: #E9E9EA;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow-soft: 0 12px 32px rgba(255, 110, 14, 0.14);
+  --shadow-card: 0 4px 18px rgba(20, 20, 20, 0.06);
+  --container: 1180px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--c-dark);
+  background: var(--c-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; margin:0; padding:0; }
+.wrap{ max-width: var(--container); margin:0 auto; padding:0 24px; }
+
+/* ---------------- Top utility bar ---------------- */
+.topbar{ background: var(--c-dark); color:#fff; font-size: 12.5px; }
+.topbar .wrap{ display:flex; justify-content:space-between; align-items:center; height:36px; }
+.topbar .tag{ background: var(--c-primary); border-radius: 99px; padding: 3px 12px; font-weight:600; letter-spacing:.2px; }
+.topbar .links{ display:flex; gap:18px; opacity:.8; }
+
+/* ---------------- Header ---------------- */
+header.site-header{
+  position: sticky; top:0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--c-line);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; height:74px; gap: 24px; }
+.logo{ font-size:26px; font-weight:800; letter-spacing:-0.5px; color: var(--c-dark); display:flex; align-items:baseline; gap:2px; }
+.logo span.plus{ color: var(--c-primary); font-size:20px; }
+.logo small{ font-size:12px; font-weight:600; color: var(--c-gray); margin-left:6px; border-left:1px solid var(--c-line); padding-left:8px; }
+nav.main-nav{ display:flex; gap:32px; }
+nav.main-nav a{ font-size:15px; font-weight:600; color: var(--c-dark); position:relative; padding: 6px 0; transition: color .15s; }
+nav.main-nav a:hover{ color: var(--c-primary); }
+.header-actions{ display:flex; align-items:center; gap:12px; }
+
+/* Branch switcher dropdown */
+.branch-switcher{ position:relative; }
+.branch-switcher select{
+  appearance:none; font-family: inherit; font-size:14px; font-weight:700;
+  color: var(--c-primary-dark); background: var(--c-primary-soft);
+  border: 1px solid #E2D9FA; border-radius: 99px; padding: 10px 36px 10px 18px;
+  cursor:pointer; min-width: 168px;
+}
+.branch-switcher::after{ content:"▾"; position:absolute; right:16px; top:50%; transform:translateY(-50%); color: var(--c-primary-dark); font-size:12px; pointer-events:none; }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:700; font-size:14.5px; border-radius: 99px; padding: 11px 22px; border:1px solid transparent; cursor:pointer; transition: transform .15s, box-shadow .15s, background .15s; white-space: nowrap; }
+.btn:hover{ transform: translateY(-1px); }
+.btn-primary{ background: var(--c-primary); color:#fff; box-shadow: var(--shadow-soft); }
+.btn-primary:hover{ background: var(--c-primary-dark); }
+.btn-dark{ background: var(--c-dark); color:#fff; }
+.btn-outline{ background:#fff; border-color: var(--c-line); color: var(--c-dark); }
+.btn-outline:hover{ border-color: var(--c-primary); color: var(--c-primary); }
+.btn-mint{ background: var(--c-mint); color:#fff; }
+.btn-sm{ padding: 8px 16px; font-size:13px; }
+.btn-block{ width:100%; }
+
+/* ---------------- Hero ---------------- */
+.hero{
+  position: relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse at 18% 25%, rgba(255,110,14,.35), transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(255,110,14,.18), transparent 55%),
+    linear-gradient(135deg, #060606 0%, #1A1A1A 55%, #2E2E2E 100%);
+  color:#fff;
+  padding: 64px 0 0;
+}
+.hero .wrap{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items:center; padding-bottom: 90px; }
+.hero-eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:.5px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius:99px; padding:6px 14px; margin-bottom:18px; }
+.hero h1{ font-size: 48px; font-weight:800; line-height:1.25; margin:0 0 14px; letter-spacing:-1px; }
+.hero h1 .branch-name{ display:block; font-size:60px; background: linear-gradient(90deg,#fff, #FFB37A); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p.sub{ font-size:16px; color: rgba(255,255,255,.78); margin:0 0 28px; max-width:480px; }
+.hero-address{ display:flex; align-items:center; gap:10px; font-size:15px; font-weight:600; margin-bottom:30px; color:#fff; }
+.hero-address .ico{ font-size:18px; }
+.hero-cta{ display:flex; gap:12px; flex-wrap:wrap; }
+.hero-visual{ position:relative; border-radius: var(--radius-lg); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); aspect-ratio: 4/3.1; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.hero-visual .blob{ position:absolute; border-radius:50%; background: linear-gradient(135deg, rgba(255,255,255,.35), rgba(255,255,255,0)); }
+.hero-visual .blob.b1{ width:220px; height:220px; top:-60px; right:-50px; }
+.hero-visual .blob.b2{ width:160px; height:160px; bottom:-40px; left:-30px; background:linear-gradient(135deg, rgba(255,110,14,.5), rgba(255,110,14,0)); }
+.hero-visual .mark{ font-size: 96px; font-weight:800; color: rgba(255,255,255,.9); letter-spacing:-2px; text-align:center; z-index:1; }
+.hero-visual .mark small{ display:block; font-size:18px; font-weight:600; color:rgba(255,255,255,.6); letter-spacing:4px; margin-top:8px; }
+
+/* ---------------- Quick info strip ---------------- */
+.quick-info{ margin-top: -54px; position: relative; z-index: 5; }
+.quick-info .grid{ background: var(--c-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); display:grid; grid-template-columns: repeat(4, 1fr); overflow:hidden; }
+.quick-info .item{ padding: 26px 24px; border-right: 1px solid var(--c-line); }
+.quick-info .item:last-child{ border-right:none; }
+.quick-info .item .label{ display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color: var(--c-primary-dark); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+.quick-info .item .value{ font-size:15.5px; font-weight:700; color: var(--c-dark); margin-bottom:4px; }
+.quick-info .item .value.tel{ font-size:19px; color:var(--c-primary-dark); }
+.quick-info .item .desc{ font-size:13px; color: var(--c-gray); }
+.quick-info .item .status{ display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color: var(--c-mint); margin-top:6px; }
+.quick-info .item .status .dot{ width:7px; height:7px; border-radius:50%; background: var(--c-mint); }
+
+/* ---------------- Section generic ---------------- */
+section{ padding: 88px 0; }
+section.alt{ background: #FFFFFF; }
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 40px; gap: 24px; flex-wrap:wrap; }
+.section-head .eyebrow{ font-size:13px; font-weight:800; color: var(--c-primary); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; display:block; }
+.section-head h2{ font-size:32px; font-weight:800; margin:0; letter-spacing:-0.5px; }
+.section-head p{ color: var(--c-gray); margin:10px 0 0; font-size:15px; }
+
+/* ---------------- Branch events ---------------- */
+.events-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+.event-card{ background: var(--c-card); border:1px solid var(--c-line); border-radius: var(--radius-md); padding: 26px; box-shadow: var(--shadow-card); transition: transform .15s, box-shadow .15s; }
+.event-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.event-card .badge{ display:inline-block; font-size:12px; font-weight:800; padding:4px 10px; border-radius:99px; margin-bottom:14px; }
+.badge-purple{ background: var(--c-primary-soft); color: var(--c-primary-dark); }
+.badge-mint{ background: var(--c-mint-soft); color: var(--c-mint); }
+.badge-dark{ background: #141414; color:#fff; }
+.event-card h3{ font-size:18px; margin:0 0 10px; font-weight:800; line-height:1.4; }
+.event-card p{ font-size:13.5px; color: var(--c-gray); margin:0 0 18px; }
+.event-card .price{ display:flex; align-items:baseline; gap:8px; font-weight:800; color: var(--c-dark); }
+.event-card .price .old{ font-size:13px; color: var(--c-gray-light); text-decoration:line-through; font-weight:600; }
+.event-card .price .new{ font-size:20px; color: var(--c-primary-dark); }
+
+/* ---------------- Doctor ---------------- */
+.doctor-block{ display:grid; grid-template-columns: 280px 1fr; gap:48px; align-items:center; background: linear-gradient(135deg, var(--c-primary-soft), #FBF9F6); border-radius: var(--radius-lg); padding: 48px; }
+.doctor-photo{ width:100%; aspect-ratio: 1/1; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--c-primary), var(--c-mint)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:64px; font-weight:800; box-shadow: var(--shadow-soft); }
+.doctor-info .role{ font-size:13px; font-weight:800; color: var(--c-primary-dark); background:#fff; display:inline-block; padding:5px 14px; border-radius:99px; margin-bottom:14px; }
+.doctor-info h3{ font-size:28px; margin:0 0 6px; font-weight:800; }
+.doctor-info .sub{ color: var(--c-gray); font-size:14px; margin-bottom:18px; }
+.doctor-info ul{ display:flex; flex-direction:column; gap:8px; margin-bottom:22px; }
+.doctor-info ul li{ font-size:14.5px; color: var(--c-dark); display:flex; gap:8px; }
+.doctor-info ul li::before{ content:"•"; color: var(--c-primary); font-weight:800; }
+
+/* ---------------- Reviews ---------------- */
+.review-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+.review-card{ background: var(--c-card); border-radius: var(--radius-md); overflow:hidden; border:1px solid var(--c-line); box-shadow: var(--shadow-card); }
+.review-media{ height: 180px; background: linear-gradient(135deg, #FFE7D4, #F0F0F0); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color: var(--c-primary-dark); letter-spacing:1px; }
+.review-body{ padding:20px; }
+.review-stars{ color:#F5B22D; font-size:14px; margin-bottom:8px; letter-spacing:2px; }
+.review-body p{ font-size:14px; color: var(--c-dark); margin:0 0 12px; }
+.review-name{ font-size:12.5px; color: var(--c-gray); font-weight:700; }
+
+/* ---------------- Map / location ---------------- */
+.location-block{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 36px; }
+.map-frame{ border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--c-line); min-height: 380px; box-shadow: var(--shadow-card); }
+.map-frame iframe{ width:100%; height:100%; min-height:380px; border:0; display:block; }
+.location-info{ background: var(--c-card); border-radius: var(--radius-lg); border:1px solid var(--c-line); padding: 36px; box-shadow: var(--shadow-card); }
+.location-info h3{ font-size:20px; margin:0 0 22px; font-weight:800; }
+.info-row{ display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--c-line); }
+.info-row:last-of-type{ border-bottom:none; }
+.info-row .ico{ width:38px; height:38px; border-radius:50%; background: var(--c-primary-soft); display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+.info-row .txt .k{ font-size:12.5px; color: var(--c-gray); font-weight:700; margin-bottom:4px; }
+.info-row .txt .v{ font-size:14.5px; font-weight:700; color: var(--c-dark); }
+.location-info .actions{ display:flex; gap:10px; margin-top:24px; }
+
+/* ---------------- Branch explorer ---------------- */
+.branch-explorer{ background: var(--c-dark); color:#fff; border-radius: var(--radius-lg); padding: 48px; }
+.branch-explorer .section-head h2{ color:#fff; }
+.branch-explorer .section-head p{ color: rgba(255,255,255,.6); }
+.branch-tabs{ display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; }
+.branch-tabs button{ font-family:inherit; font-size:13.5px; font-weight:700; background: rgba(255,255,255,.06); color: rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.12); border-radius:99px; padding:8px 18px; cursor:pointer; }
+.branch-tabs button.active{ background: var(--c-primary); color:#fff; border-color: var(--c-primary); }
+.branch-tabs button:hover{ color:#fff; }
+.branch-chip-grid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:10px; }
+.branch-chip{ background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius: var(--radius-sm); padding:14px 12px; font-size:13.5px; font-weight:700; text-align:center; transition: background .15s, border-color .15s; display:block; }
+.branch-chip:hover{ background: rgba(255,110,14,.22); border-color: var(--c-primary); }
+.branch-chip.current{ background: var(--c-primary); border-color: var(--c-primary); }
+.branch-pane{ display:none; }
+.branch-pane.active{ display:block; }
+
+/* ---------------- Footer ---------------- */
+footer{ background:#0A0A0A; color: rgba(255,255,255,.6); padding: 56px 0 28px; font-size:13px; }
+footer .wrap{ display:flex; flex-direction:column; gap:16px; }
+footer .flogo{ font-size:20px; font-weight:800; color:#fff; }
+footer .flinks{ display:flex; gap:18px; }
+footer .fline{ border-top:1px solid rgba(255,255,255,.08); padding-top:20px; line-height:1.9; }
+
+/* ---------------- Side floating action bar ---------------- */
+.side-fab{ position: fixed; top: 50%; right: 22px; transform: translateY(-50%); z-index: 300; background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--radius-md); box-shadow: var(--shadow-soft); overflow: hidden; }
+.side-fab-item{ display:flex; flex-direction:column; align-items:center; gap:6px; padding: 16px 16px; min-width: 76px; border-bottom: 1px solid var(--c-line); font-size: 12px; font-weight:700; color: var(--c-dark); transition: background .15s, color .15s; }
+.side-fab-item:last-child{ border-bottom:none; }
+.side-fab-item:hover{ background: var(--c-primary-soft); color: var(--c-primary-dark); }
+.side-fab-icon{ width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:17px; background: var(--c-bg); }
+.side-fab-item:hover .side-fab-icon{ background:#fff; }
+
+/* ---------------- Transit tags ---------------- */
+.transit-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.transit-tag{ display:inline-flex; align-items:center; background: var(--c-bg); border:1px solid var(--c-line); border-radius:99px; padding:4px 12px; font-size:12px; font-weight:700; color: var(--c-dark); }
+
+/* ---------------- Parking card ---------------- */
+.parking-card{ background:var(--c-card); border:1px solid var(--c-line); border-radius:var(--radius-lg); padding:28px 32px; margin-top:28px; box-shadow:var(--shadow-card); }
+.parking-card-head{ display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.parking-card-head h4{ margin:0; font-size:17px; font-weight:800; }
+.parking-card-head i{ font-size:18px; color:var(--c-primary); }
+.parking-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.parking-item{ display:flex; flex-direction:column; gap:5px; padding:16px; background:var(--c-bg); border-radius:var(--radius-md); border:1px solid var(--c-line); }
+.parking-item-label{ font-size:11px; font-weight:800; color:var(--c-gray); text-transform:uppercase; letter-spacing:.6px; }
+.parking-item-value{ font-size:14px; font-weight:600; color:var(--c-dark); line-height:1.55; }
+.parking-item-note{ font-size:12px; color:var(--c-gray); margin-top:2px; }
+.parking-notice{ margin-top:16px; padding:12px 16px; background:var(--c-primary-soft); border-radius:var(--radius-md); font-size:13px; color:var(--c-primary-dark); font-weight:600; display:flex; align-items:flex-start; gap:8px; }
+.parking-notice i{ flex-shrink:0; margin-top:2px; }
+
+/* ---------------- Mobile sticky CTA ---------------- */
+.mobile-cta{ display:none; }
+
+/* ---------------- Philosophy section ---------------- */
+.philosophy-section{ padding: 88px 0; }
+.philosophy-inner{ display:grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items:center; }
+.philosophy-text .eyebrow{ font-size:13px; font-weight:800; color: var(--c-primary); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; display:block; }
+.philosophy-text h2{ font-size:36px; font-weight:800; margin:0 0 18px; letter-spacing:-0.5px; line-height:1.3; }
+.philosophy-text p{ font-size:16px; color: var(--c-gray); margin:0 0 28px; max-width:400px; line-height:1.75; }
+.philosophy-values{ display:flex; flex-wrap:wrap; gap:8px; }
+.phil-tag{ display:inline-flex; align-items:center; background: var(--c-dark); color:rgba(255,255,255,.85); border-radius:99px; padding:6px 16px; font-size:12.5px; font-weight:700; letter-spacing:.3px; }
+.philosophy-pillars{ display:flex; flex-direction:column; gap:0; }
+.pillar{ display:flex; gap:20px; align-items:flex-start; padding: 24px 0; border-bottom:1px solid var(--c-line); }
+.pillar:last-child{ border-bottom:none; }
+.pillar-num{ font-size:13px; font-weight:800; color: var(--c-primary); letter-spacing:.5px; min-width:28px; margin-top:2px; }
+.pillar h4{ font-size:16px; font-weight:800; margin:0 0 6px; }
+.pillar p{ font-size:14px; color: var(--c-gray); margin:0; line-height:1.65; }
+
+/* ---------------- Community section ---------------- */
+.community-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+.community-card{ background: var(--c-card); border:1px solid var(--c-line); border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-card); transition: transform .15s, box-shadow .15s; text-decoration:none; color: var(--c-dark); display:flex; flex-direction:column; }
+.community-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.community-card-img{ width:100%; aspect-ratio: 16/10; overflow:hidden; background: var(--c-primary-soft); }
+.community-card-img img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .3s; }
+.community-card:hover .community-card-img img{ transform: scale(1.04); }
+.community-card-body{ padding:18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.comm-badge{ display:inline-block; font-size:11px; font-weight:800; padding:3px 10px; border-radius:99px; background: var(--c-primary-soft); color: var(--c-primary-dark); letter-spacing:.2px; white-space:nowrap; align-self:flex-start; }
+.comm-badge-best{ background: var(--c-dark); color:#fff; }
+.community-card-body h4{ margin:0; font-size:14.5px; font-weight:700; line-height:1.5; color: var(--c-dark); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.comm-meta{ display:flex; align-items:center; gap:10px; font-size:12px; color: var(--c-gray); margin-top:auto; padding-top:4px; }
+.comm-date{ font-weight:600; }
+.comm-views, .comm-comments{ font-weight:600; }
+
+/* ---------------- Treatment tabs v4 ---------------- */
+.tx-tabs-bar{ display:flex; gap:8px; overflow-x:auto; margin-bottom:32px; padding-bottom:2px; scrollbar-width:none; }
+.tx-tabs-bar::-webkit-scrollbar{ display:none; }
+.tx-tab-btn{ font-family:inherit; font-size:14px; font-weight:700; color:var(--c-gray); background:var(--c-card); border:1.5px solid var(--c-line); border-radius:99px; padding:10px 22px; cursor:pointer; white-space:nowrap; transition:all .15s; }
+.tx-tab-btn:hover{ color:var(--c-primary); border-color:var(--c-primary); }
+.tx-tab-btn.active{ background:var(--c-primary); color:#fff; border-color:var(--c-primary); }
+.tx-tab-pane{ display:none; }
+.tx-tab-pane.active{ display:block; animation:txFade .2s ease; }
+@keyframes txFade{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+
+.tx-v4-grid{ display:grid; gap:16px; grid-template-columns:repeat(4,1fr); }
+.tx-v4-grid-2{ grid-template-columns:repeat(2,1fr); max-width:680px; }
+.tx-v4-grid-3{ grid-template-columns:repeat(3,1fr); }
+.tx-booster-grid{ display:grid; gap:12px; grid-template-columns:repeat(4,1fr); }
+
+.tx-v4-card{ background:var(--c-card); border:1px solid var(--c-line); border-radius:var(--radius-md); padding:28px 22px; display:flex; flex-direction:column; gap:10px; transition:border-color .15s, transform .15s, box-shadow .15s; }
+.tx-v4-card:hover{ border-color:var(--c-primary); transform:translateY(-3px); box-shadow:var(--shadow-soft); }
+.tx-v4-icon{ width:48px; height:48px; border-radius:50%; background:var(--c-primary-soft); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; color:var(--c-primary-dark); }
+.tx-v4-icon i{ font-size:18px; color:var(--c-primary-dark); }
+.tx-v4-card h4{ margin:0; font-size:17px; font-weight:800; }
+.tx-v4-desc{ font-size:13.5px; color:var(--c-gray); margin:0; line-height:1.65; flex:1; }
+.tx-v4-price{ display:inline-block; margin-top:auto; align-self:flex-start; font-size:12px; font-weight:800; color:var(--c-primary-dark); background:var(--c-primary-soft); border-radius:99px; padding:4px 14px; }
+
+.tx-botox-card{ background:var(--c-card); border:1.5px solid var(--c-primary); border-radius:var(--radius-lg); padding:36px 40px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; box-shadow:var(--shadow-soft); }
+.tx-botox-left{ display:flex; gap:20px; align-items:flex-start; }
+.tx-botox-left .tx-v4-icon{ width:56px; height:56px; font-size:26px; }
+.tx-botox-left h4{ margin:0 0 8px; font-size:22px; font-weight:800; }
+.tx-botox-right{ display:flex; flex-direction:column; gap:14px; }
+.tx-botox-label{ font-size:12px; font-weight:700; color:var(--c-gray); text-transform:uppercase; letter-spacing:.6px; margin:0; }
+.tx-botox-areas{ display:flex; flex-wrap:wrap; gap:8px; }
+.tx-botox-areas span{ background:var(--c-bg); border:1px solid var(--c-line); border-radius:99px; padding:6px 16px; font-size:13.5px; font-weight:700; color:var(--c-dark); }
+
+.tx-booster-card{ background:var(--c-card); border:1px solid var(--c-line); border-radius:var(--radius-md); padding:22px 20px; display:flex; flex-direction:column; gap:8px; transition:border-color .15s, transform .15s; }
+.tx-booster-card:hover{ border-color:var(--c-primary); transform:translateY(-2px); }
+.tx-booster-card h4{ margin:0; font-size:15px; font-weight:800; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1024px){
+  .tx-v4-grid{ grid-template-columns:repeat(3,1fr); }
+  .tx-booster-grid{ grid-template-columns:repeat(3,1fr); }
+  .tx-botox-card{ grid-template-columns:1fr; gap:24px; padding:28px; }
+  .philosophy-inner{ grid-template-columns: 1fr; gap:40px; }
+  .philosophy-text h2{ font-size:28px; }
+  .hero .wrap{ grid-template-columns: 1fr; padding-bottom:60px; }
+  .hero-visual{ order:-1; aspect-ratio: 16/9; }
+  .quick-info .grid{ grid-template-columns: repeat(2,1fr); }
+  .quick-info .item:nth-child(2){ border-right:none; }
+  .events-grid, .review-grid, .community-grid{ grid-template-columns: repeat(2,1fr); }
+  .doctor-block{ grid-template-columns: 1fr; padding:32px; }
+  .doctor-photo{ max-width:220px; margin:0 auto; }
+  .location-block{ grid-template-columns: 1fr; }
+  .parking-grid{ grid-template-columns: 1fr; }
+  .branch-chip-grid{ grid-template-columns: repeat(3,1fr); }
+  nav.main-nav{ display:none; }
+  .side-fab{ display:none; }
+}
+
+@media (max-width: 640px){
+  .tx-v4-grid, .tx-v4-grid-3{ grid-template-columns:repeat(2,1fr); }
+  .tx-v4-grid-2{ grid-template-columns:1fr; max-width:100%; }
+  .tx-booster-grid{ grid-template-columns:repeat(2,1fr); }
+  .hero h1{ font-size:34px; }
+  .hero h1 .branch-name{ font-size:44px; }
+  .quick-info{ margin-top:-30px; }
+  .quick-info .grid{ grid-template-columns: 1fr 1fr; }
+  .quick-info .item{ border-bottom:1px solid var(--c-line); }
+  .events-grid, .review-grid, .community-grid{ grid-template-columns: 1fr; }
+  .branch-chip-grid{ grid-template-columns: repeat(2,1fr); }
+  section{ padding:56px 0; }
+  .section-head h2{ font-size:24px; }
+  .branch-switcher select{ min-width:120px; font-size:13px; }
+  .header-actions .btn-primary{ display:none; }
+  .mobile-cta{ display:flex; position:fixed; bottom:0; left:0; right:0; z-index:200; background:#fff; border-top:1px solid var(--c-line); padding:12px 16px; gap:10px; box-shadow: 0 -4px 20px rgba(0,0,0,.06); }
+  body{ padding-bottom:70px; }
+}
+</style>
+</head>
+<body>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="tag">전국 44개 지점 네트워크</span>
+    <div class="links">
+      <a href="#">이벤트</a>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank">커뮤니티</a>
+      <a href="#">고객센터</a>
+      <a href="#">한국어 ▾</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="https://www.maypureclinic.com/" class="logo">maypure<span class="plus">+</span><small>BEAUTY CLINIC</small></a>
+    <nav class="main-nav">
+      <a href="#events">이벤트</a>
+      <a href="#doctor">의료진</a>
+      <a href="#treatments">시술안내</a>
+      <a href="#reviews">후기</a>
+      <a href="#community">커뮤니티</a>
+      <a href="#location">오시는 길</a>
+    </nav>
+    <div class="header-actions">
+      <div class="branch-switcher">
+        <select onchange="if(this.value) location.href=this.value;">
+          <option value="">강남점 ▾ 다른 지점</option>
+          <optgroup label="서울">
+            <option value="#" selected>강남</option>
+            <option value="#">홍대입구</option>
+            <option value="#">시청역</option>
+            <option value="#">영등포</option>
+            <option value="#">왕십리</option>
+            <option value="#">잠실</option>
+            <option value="#">목동</option>
+            <option value="#">동대문</option>
+            <option value="#">연신내</option>
+          </optgroup>
+          <optgroup label="경기/인천">
+            <option value="#">야탑</option>
+            <option value="#">수지</option>
+            <option value="#">광교</option>
+            <option value="#">하남</option>
+          </optgroup>
+          <optgroup label="부산 · 충남">
+            <option value="#">부산덕천</option>
+            <option value="#">천안</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SIDE FLOATING ACTION BAR -->
+<div class="side-fab">
+  <a href="#" class="side-fab-item"><span class="side-fab-icon">💬</span><span>카톡상담</span></a>
+  <a href="#" class="side-fab-item"><span class="side-fab-icon">💚</span><span>위챗상담</span></a>
+  <a href="#" class="side-fab-item"><span class="side-fab-icon">📩</span><span>인스타DM</span></a>
+  <a href="tel:02-1312-1412" class="side-fab-item"><span class="side-fab-icon">📞</span><span>전화상담</span></a>
+  <a href="#events" class="side-fab-item"><span class="side-fab-icon">🎉</span><span>이벤트</span></a>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:64px; padding-bottom:0;">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">📍 메이퓨어 지점 안내 · 강남역 4번출구 도보 5분</span>
+      <h1>메이퓨어<span class="branch-name">강남</span></h1>
+      <p class="sub">과잉 진료 없이, 정품·정량 원칙으로 운영되는 강남역 피부·바디 클리닉입니다.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-mint">💬 카카오 1:1 상담</a>
+        <a href="#" class="btn btn-outline" style="background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.25);">⚡ 네이버 빠른예약</a>
+        <a href="#location" class="btn btn-outline" style="background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.25);">🗺️ 길찾기</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="mark">GN<small>GANGNAM BRANCH</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK INFO -->
+<div class="wrap quick-info">
+  <div class="grid">
+    <div class="item">
+      <div class="label">📍 주소</div>
+      <div class="value">강남구 역삼로1길 18</div>
+      <div class="desc">동원빌딩 3층 302호</div>
+    </div>
+    <div class="item">
+      <div class="label">📞 대표전화</div>
+      <a class="value tel" href="tel:02-1312-1412">02-1312-1412</a>
+      <div class="desc">전화 한 번으로 빠른 상담</div>
+    </div>
+    <div class="item">
+      <div class="label">🕒 진료시간</div>
+      <div class="value">평일 10:30 - 20:30</div>
+      <div class="desc">토요일 10:00 - 17:00</div>
+      <div class="status"><span class="dot"></span> 일·공휴일 휴진</div>
+    </div>
+    <div class="item">
+      <div class="label">💬 카카오 채널</div>
+      <div class="value">메이퓨어의원</div>
+      <div class="desc">이벤트 소식 · 1:1 상담</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="alt philosophy-section">
+  <div class="wrap">
+    <div class="philosophy-inner">
+      <div class="philosophy-text">
+        <span class="eyebrow">메이퓨어의 약속</span>
+        <h2>당신이 기대한 변화를,<br>부담 없이</h2>
+        <p>좋은 시술은 비싸지 않아도 됩니다. 강남점은 과잉 없이, 개인 상태에 맞게. 편한 시간에, 편한 마음으로 받을 수 있습니다.</p>
+        <div class="philosophy-values">
+          <span class="phil-tag">광고비 최소화</span>
+          <span class="phil-tag">재료비 절감</span>
+          <span class="phil-tag">합리적 임대료</span>
+          <span class="phil-tag">간결한 인테리어</span>
+        </div>
+      </div>
+      <div class="philosophy-pillars">
+        <div class="pillar"><span class="pillar-num">01</span><div><h4>부담 없는 가격</h4><p>불필요한 광고·인테리어 비용을 줄이고, 절감된 비용을 시술 품질에 집중했습니다.</p></div></div>
+        <div class="pillar"><span class="pillar-num">02</span><div><h4>기대 이상의 시술</h4><p>서울대 출신 가정의학과 전문의가 꼭 필요한 시술만 제안합니다.</p></div></div>
+        <div class="pillar"><span class="pillar-num">03</span><div><h4>원하는 시간에 예약</h4><p>평일 10:30~20:30, 토요일도 운영합니다. 직장인도 여유롭게 방문할 수 있습니다.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section id="doctor">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Doctor</span><h2>강남점 대표원장</h2></div></div>
+    <div class="doctor-block">
+      <div class="doctor-photo">최<small style="font-size:14px; font-weight:700; opacity:.8; margin-top:6px;">DOCTOR</small></div>
+      <div class="doctor-info">
+        <span class="role">강남 대표원장</span>
+        <h3>최희원 원장</h3>
+        <div class="sub">가정의학과 전문의 · 서울대학교 의과대학 졸업</div>
+        <ul>
+          <li>서울대학교 의과대학 졸업</li>
+          <li>서울대학교병원 수련의</li>
+          <li>서울대학교병원 가정의학과 전문의</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCH EVENTS -->
+<section class="alt" id="events">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Gangnam Only</span><h2>강남점 이번 주 이벤트</h2><p>강남점에서만 진행되는 신규 런칭 이벤트와 패키지 혜택을 확인하세요.</p></div>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="btn btn-outline">전체 이벤트 보기 →</a>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <span class="badge badge-purple">NEW LAUNCH</span>
+        <h3>필러가 부담스럽다면, 콜라겐 부스터<br>래디어스(Radiesse)</h3>
+        <p>CaHA 성분 기반 콜라겐 부스터로 자연스러운 볼륨과 탄력 개선을 동시에. 강남점 단독 런칭 이벤트.</p>
+        <div class="price"><span class="old">정가 99만원</span><span class="new">1 Syringe 69만원</span></div>
+      </div>
+      <div class="event-card">
+        <span class="badge badge-mint">SUMMER</span>
+        <h3>여름이 온다, 통증 없는 바디 라인<br>온다(ONDA) 리프팅</h3>
+        <p>다운타임 없이 복부·바디 라인 탄력 개선. 6만줄부터 시작하는 강남점 단독 런칭가.</p>
+        <div class="price"><span class="old">정상가 50만원</span><span class="new">6만줄 35만원</span></div>
+      </div>
+      <div class="event-card">
+        <span class="badge badge-dark">BEST</span>
+        <h3>온다 + 컷슬린 조합<br>지방분해주사 패키지</h3>
+        <p>늘어진 라인은 타이트하게, 지방은 더 정교하게. 컷슬린 지방분해주사 최대 6병 단위 특가.</p>
+        <div class="price"><span class="old">6병 48만원</span><span class="new">6병 40만원</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS v4 — 7탭 -->
+<section id="treatments">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">시술 안내</span><h2>강남점 시술 메뉴</h2><p>카테고리를 선택해 원하는 시술을 확인하세요.</p></div>
+      <a href="#" class="btn btn-primary">💬 카카오 상담 예약</a>
+    </div>
+    <div class="tx-tabs-bar">
+      <button class="tx-tab-btn active" onclick="showTxTab('wrinkle', this)">얼굴 주름</button>
+      <button class="tx-tab-btn" onclick="showTxTab('volume', this)">볼륨·윤곽</button>
+      <button class="tx-tab-btn" onclick="showTxTab('lifting', this)">리프팅·탄력</button>
+      <button class="tx-tab-btn" onclick="showTxTab('pigment', this)">피부톤·색소</button>
+      <button class="tx-tab-btn" onclick="showTxTab('pore', this)">모공·피부결</button>
+      <button class="tx-tab-btn" onclick="showTxTab('booster', this)">스킨부스터</button>
+      <button class="tx-tab-btn" onclick="showTxTab('body', this)">바디·체형</button>
+    </div>
+    <div class="tx-tab-pane active" id="txpane-wrinkle">
+      <div class="tx-botox-card">
+        <div class="tx-botox-left">
+          <div class="tx-v4-icon"><i class="fa-solid fa-syringe"></i></div>
+          <div><h4>보톡스</h4><p class="tx-v4-desc">표정 주름과 윤곽을 자연스럽게 교정하는 대표 시술. 부위별 맞춤 용량으로 자연스러운 결과를 만들어드립니다.</p></div>
+        </div>
+        <div class="tx-botox-right">
+          <p class="tx-botox-label">시술 가능 부위</p>
+          <div class="tx-botox-areas"><span>이마</span><span>미간</span><span>눈가</span><span>사각턱</span><span>입가</span><span>종아리</span></div>
+          <span class="tx-v4-price">상담 후 안내</span>
+        </div>
+      </div>
+    </div>
+    <div class="tx-tab-pane" id="txpane-volume">
+      <div class="tx-v4-grid tx-v4-grid-2">
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-syringe"></i></div><h4>필러</h4><p class="tx-v4-desc">꺼진 볼·팔자·입술 부위에 히알루론산 필러로 자연스러운 볼륨을 채우는 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-star"></i></div><h4>리비콜</h4><p class="tx-v4-desc">피부 속 콜라겐 생성을 자극해 볼륨과 탄력을 동시에 개선하는 콜라겐 부스터</p><span class="tx-v4-price">69만원부터</span></div>
+      </div>
+    </div>
+    <div class="tx-tab-pane" id="txpane-lifting">
+      <div class="tx-v4-grid tx-v4-grid-3">
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-wifi"></i></div><h4>덴서티</h4><p class="tx-v4-desc">고주파 에너지로 피부 깊은 층을 자극해 처짐을 개선하는 고주파 리프팅</p><span class="tx-v4-price">35만원부터</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-angles-up"></i></div><h4>슈링크</h4><p class="tx-v4-desc">초음파(HIFU)로 SMAS층까지 타이트닝해 얼굴 윤곽을 끌어올리는 리프팅 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-bolt"></i></div><h4>인모드</h4><p class="tx-v4-desc">고주파로 얼굴 지방층과 진피를 동시에 자극해 윤곽을 리모델링하는 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+      </div>
+    </div>
+    <div class="tx-tab-pane" id="txpane-pigment">
+      <div class="tx-v4-grid tx-v4-grid-3">
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-circle-dot"></i></div><h4>피코레이저</h4><p class="tx-v4-desc">초단파 레이저로 기미·잡티·색소를 빠르고 정밀하게 분해하는 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-sun"></i></div><h4>레이저토닝</h4><p class="tx-v4-desc">저출력 레이저로 칙칙한 피부톤을 균일하고 맑게 개선하는 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-layer-group"></i></div><h4>색소침착 치료 프로그램</h4><p class="tx-v4-desc">피부 타입에 맞춰 복합 레이저를 조합한 색소 집중 케어 프로그램</p><span class="tx-v4-price">상담 후 설계</span></div>
+      </div>
+    </div>
+    <div class="tx-tab-pane" id="txpane-pore">
+      <div class="tx-v4-grid">
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-water"></i></div><h4>LDM</h4><p class="tx-v4-desc">초음파로 피부 깊은 층을 자극해 피부결과 탄력을 동시에 개선하는 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-grip"></i></div><h4>피코프락셀</h4><p class="tx-v4-desc">피코 레이저로 모공을 조이고 피부 재생을 촉진하는 피부결 개선 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-leaf"></i></div><h4>카프리</h4><p class="tx-v4-desc">복합 에너지로 여드름과 모공을 동시에 케어하는 피부결 개선 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-rotate"></i></div><h4>라라필</h4><p class="tx-v4-desc">저자극 에너지로 민감한 피부를 천천히 리빌딩하는 피부 재건 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+      </div>
+    </div>
+    <div class="tx-tab-pane" id="txpane-booster">
+      <div class="tx-booster-grid">
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-droplet"></i></div><h4>리비힐 샤이닝</h4><p class="tx-v4-desc">즉각적인 광채와 수분 개선을 위한 히알루론산 피부 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-droplet"></i></div><h4>리비힐 엘라스틱</h4><p class="tx-v4-desc">피부 탄력과 밀도를 높이는 콜라겐 생성 촉진 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-droplet"></i></div><h4>리비힐 엑소좀</h4><p class="tx-v4-desc">엑소좀 성분으로 피부 재생과 장벽 강화를 동시에 돕는 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-sun"></i></div><h4>멜라듀스</h4><p class="tx-v4-desc">미백·색소 개선에 특화된 피부 톤업 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-droplet"></i></div><h4>리투오</h4><p class="tx-v4-desc">보습과 피부 재생을 동시에 케어하는 멀티 기능 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-star"></i></div><h4>비타란</h4><p class="tx-v4-desc">비타민 복합 성분으로 피부 활력과 광채를 높이는 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-booster-card"><div class="tx-v4-icon"><i class="fa-solid fa-rotate"></i></div><h4>셀르디엠</h4><p class="tx-v4-desc">콜라겐 합성을 촉진하고 안티에이징 효과를 주는 피부 부스터</p><span class="tx-v4-price">상담 후 안내</span></div>
+      </div>
+    </div>
+    <div class="tx-tab-pane" id="txpane-body">
+      <div class="tx-v4-grid tx-v4-grid-3">
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-person"></i></div><h4>바디 인모드</h4><p class="tx-v4-desc">고주파로 복부·팔·허벅지 등 바디 라인을 타이트하게 리모델링하는 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-syringe"></i></div><h4>컷슬린</h4><p class="tx-v4-desc">지방 세포를 분해하고 라인을 정교하게 정리하는 지방분해 주사</p><span class="tx-v4-price">40만원부터</span></div>
+        <div class="tx-v4-card"><div class="tx-v4-icon"><i class="fa-solid fa-head-side"></i></div><h4>판토딜</h4><p class="tx-v4-desc">두피 혈액순환을 개선하고 모발 성장을 돕는 두피·모발 케어 시술</p><span class="tx-v4-price">상담 후 안내</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="alt" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Real Review</span><h2>후기</h2><p>실제 방문 고객들의 비포·애프터와 생생한 후기입니다.</p></div>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="btn btn-outline">🔐 로그인 후 후기 보러가기 →</a>
+    </div>
+    <div class="review-grid">
+      <div class="review-card"><div class="review-media">BEFORE · AFTER</div><div class="review-body"><div class="review-stars">★★★★★</div><p>래디어스 시술 후 볼 꺼짐이 자연스럽게 채워졌어요. 필러 특유의 인위적인 느낌 없이 만족스러운 결과였습니다.</p><div class="review-name">강남점 방문 · 30대 여성</div></div></div>
+      <div class="review-card"><div class="review-media">BEFORE · AFTER</div><div class="review-body"><div class="review-stars">★★★★★</div><p>온다 리프팅 3회 패키지로 복부 라인이 한층 정리됐어요. 통증이 거의 없어서 점심시간에 가볍게 받고 갑니다.</p><div class="review-name">강남점 방문 · 20대 여성</div></div></div>
+      <div class="review-card"><div class="review-media">BEFORE · AFTER</div><div class="review-body"><div class="review-stars">★★★★★</div><p>원장님이 직접 꼼꼼하게 상담해주셔서 신뢰가 갔어요. 과잉 진료 권유 없이 필요한 부분만 짚어주셔서 좋았습니다.</p><div class="review-name">강남점 방문 · 40대 여성</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Community</span><h2>강남점 커뮤니티</h2><p>강남점 최신 소식, 시술 정보, 이벤트를 확인하세요.</p></div>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="btn btn-outline">커뮤니티 더보기 →</a>
+    </div>
+    <div class="community-grid">
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="community-card"><div class="community-card-img"><img src="https://media.nudge-community.com/10395633?w=480&h=300&format=webp" alt="강남점 단독 타임이벤트" loading="lazy"></div><div class="community-card-body"><span class="comm-badge">이벤트</span><h4>강남점 단독 타임이벤트 06/08~6/19</h4><div class="comm-meta"><span class="comm-date">26.06.01</span><span class="comm-views">👁 146</span></div></div></a>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="community-card"><div class="community-card-img"><img src="https://media.nudge-community.com/10386276?w=480&h=300&format=webp" alt="온다 리프팅" loading="lazy"></div><div class="community-card-body"><span class="comm-badge">시술안내</span><h4>다이어트해도 안 빠지는 복부 지방, 온다 리프팅이 도움이 될 수 있을까?</h4><div class="comm-meta"><span class="comm-date">26.06.04</span><span class="comm-views">👁 126</span></div></div></a>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="community-card"><div class="community-card-img"><img src="https://media.nudge-community.com/10389370?w=480&h=300&format=webp" alt="래디어스 런칭이벤트" loading="lazy"></div><div class="community-card-body"><span class="comm-badge">이벤트</span><h4>필러가 싫다면 래디어스 — 강남점 런칭이벤트 안내</h4><div class="comm-meta"><span class="comm-date">26.06.04</span><span class="comm-views">👁 113</span></div></div></a>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="community-card"><div class="community-card-img"><img src="https://media.nudge-community.com/10340681?w=480&h=300&format=webp" alt="컷슬린 인젝션" loading="lazy"></div><div class="community-card-body"><span class="comm-badge">시술안내</span><h4>컷슬린 인젝션이란? 지방 감소와 라인 정리를 함께</h4><div class="comm-meta"><span class="comm-date">26.05.19</span><span class="comm-views">👁 186</span></div></div></a>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="community-card"><div class="community-card-img"><img src="https://media.nudge-community.com/9769734?w=480&h=300&format=webp" alt="덴서티 하이 리프팅" loading="lazy"></div><div class="community-card-body"><span class="comm-badge comm-badge-best">BEST</span><h4>차세대 리프팅 '덴서티 하이' — 강남점 도입 안내</h4><div class="comm-meta"><span class="comm-date">25.12.08</span><span class="comm-views">👁 629</span><span class="comm-comments">💬 5</span></div></div></a>
+      <a href="https://www.maypureclinic.com/community/gangnam" target="_blank" class="community-card"><div class="community-card-img"><img src="https://media.nudge-community.com/9760478?w=480&h=300&format=webp" alt="강남점 의료진 및 오시는 길" loading="lazy"></div><div class="community-card-body"><span class="comm-badge">병원소개</span><h4>메이퓨어 강남점 의료진 및 오시는 길 안내</h4><div class="comm-meta"><span class="comm-date">25.12.05</span><span class="comm-views">👁 749</span></div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Location</span><h2>오시는 길 &amp; 주차 안내</h2></div></div>
+    <div class="location-block">
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EC%97%AD%EC%82%BC%EB%A1%9C1%EA%B8%B8%2018&output=embed" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <div class="location-info">
+        <h3>메이퓨어의원 강남점</h3>
+        <div class="info-row"><div class="ico">📍</div><div class="txt"><div class="k">주소</div><div class="v">서울 강남구 역삼로1길 18 동원빌딩 3층 302호</div></div></div>
+        <div class="info-row"><div class="ico">📞</div><div class="txt"><div class="k">대표전화</div><div class="v">02-1312-1412</div></div></div>
+        <div class="info-row"><div class="ico">🕒</div><div class="txt"><div class="k">진료시간</div><div class="v">평일 10:30-20:30 · 토 10:00-17:00 (일·공휴일 휴진)</div></div></div>
+        <div class="info-row"><div class="ico">🚇</div><div class="txt"><div class="k">주변 지하철</div><div class="transit-tags"><span class="transit-tag">2호선 강남역</span><span class="transit-tag">신분당선 강남역</span></div></div></div>
+        <div class="info-row"><div class="ico">🚌</div><div class="txt"><div class="k">주변 버스</div><div class="transit-tags"><span class="transit-tag">간선 140</span><span class="transit-tag">간선 144</span><span class="transit-tag">간선 360</span><span class="transit-tag">지선 3414</span><span class="transit-tag">광역 9408</span></div></div></div>
+        <div class="actions">
+          <a href="#" class="btn btn-primary btn-block">🗺️ 내 위치에서 길찾기</a>
+          <a href="#" class="btn btn-outline btn-block">💬 카카오 상담</a>
+        </div>
+      </div>
+    </div>
+    <div class="parking-card">
+      <div class="parking-card-head"><i class="fa-solid fa-car"></i><h4>주차 안내</h4></div>
+      <div class="parking-grid">
+        <div class="parking-item"><span class="parking-item-label">제휴 주차장</span><span class="parking-item-value">넛지캠퍼스 주차장</span><span class="parking-item-note">역삼동 831-55 평익빌딩 1층<br>지점 건물 뒷편 도보 1분 거리</span></div>
+        <div class="parking-item"><span class="parking-item-label">인근 유료 주차장 ①</span><span class="parking-item-value">후린솔도서관 주차장</span><span class="parking-item-note">유료 공영 주차장</span></div>
+        <div class="parking-item"><span class="parking-item-label">인근 유료 주차장 ②</span><span class="parking-item-value">역삼1동 문화센터 공영주차장</span><span class="parking-item-note">공영 주차장</span></div>
+      </div>
+      <div class="parking-notice"><i class="fa-solid fa-circle-info"></i>강남역 4번출구에서 도보 5분 거리로 <strong>대중교통 이용을 권장</strong>합니다. 주차 관련 문의는 방문 전 카카오 채널로 연락해 주세요.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCH EXPLORER -->
+<section class="alt">
+  <div class="wrap">
+    <div class="branch-explorer">
+      <div class="section-head"><div><span class="eyebrow" style="color:var(--c-mint);">All Branches</span><h2>다른 지점도 둘러보세요</h2><p>전국 44개 지점에서 동일한 원칙으로 운영됩니다.</p></div></div>
+      <div class="branch-tabs">
+        <button class="active" onclick="showBranchPane('seoul', this)">서울</button>
+        <button onclick="showBranchPane('gi', this)">경기 · 인천</button>
+        <button onclick="showBranchPane('etc', this)">부산 · 충남</button>
+      </div>
+      <div class="branch-pane active" id="pane-seoul">
+        <div class="branch-chip-grid">
+          <a class="branch-chip current" href="#">강남</a><a class="branch-chip" href="#">홍대입구</a><a class="branch-chip" href="#">시청역</a><a class="branch-chip" href="#">영등포</a><a class="branch-chip" href="#">왕십리</a><a class="branch-chip" href="#">잠실</a><a class="branch-chip" href="#">목동</a><a class="branch-chip" href="#">동대문</a><a class="branch-chip" href="#">연신내</a><a class="branch-chip" href="#">망우역</a><a class="branch-chip" href="#">가산디지털</a><a class="branch-chip" href="#">고덕</a>
+        </div>
+      </div>
+      <div class="branch-pane" id="pane-gi">
+        <div class="branch-chip-grid">
+          <a class="branch-chip" href="#">야탑</a><a class="branch-chip" href="#">수지</a><a class="branch-chip" href="#">광교</a><a class="branch-chip" href="#">하남</a><a class="branch-chip" href="#">수내</a><a class="branch-chip" href="#">위례중앙</a><a class="branch-chip" href="#">인하대역</a><a class="branch-chip" href="#">인천계양</a><a class="branch-chip" href="#">김포장기</a><a class="branch-chip" href="#">성남태평</a><a class="branch-chip" href="#">구리</a><a class="branch-chip" href="#">수원천천</a>
+        </div>
+      </div>
+      <div class="branch-pane" id="pane-etc">
+        <div class="branch-chip-grid">
+          <a class="branch-chip" href="#">부산덕천</a><a class="branch-chip" href="#">천안</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="flogo">maypure+</div>
+    <div class="flinks"><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">비급여 수가표</a><a href="#">제휴문의</a></div>
+    <div class="fline">
+      메이퓨어의원 강남점 | 대표자: 최희원 | 서울 강남구 역삼로1길 18 동원빌딩 3층 302호 | 대표전화: 02-1312-1412<br>
+      ⓘ 본 페이지는 메이퓨어 공식 사이트 리디자인을 위한 목업(시안)이며, 실제 서비스 화면이 아닙니다.
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CTA -->
+<div class="mobile-cta">
+  <a href="#" class="btn btn-mint btn-block">💬 카카오 상담</a>
+  <a href="#" class="btn btn-primary btn-block">⚡ 네이버 빠른예약</a>
+</div>
+
+<script>
+function showTxTab(id, btn) {
+  document.querySelectorAll('.tx-tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tx-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('txpane-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function showBranchPane(id, btn) {
+  document.querySelectorAll('.branch-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.branch-tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById('pane-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
