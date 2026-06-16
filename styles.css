@@ -270,6 +270,7 @@ footer .fline{ border-top:1px solid rgba(255,255,255,.08); padding-top:20px; lin
 
 /* ---------------- Mobile nav drawer ---------------- */
 .mobile-nav{
+  display:none;
   position:fixed;
   top:0; left:0; right:0;
   z-index:150;
@@ -405,49 +406,106 @@ footer .fline{ border-top:1px solid rgba(255,255,255,.08); padding-top:20px; lin
 .tx-booster-card:hover{ border-color:var(--c-primary); transform:translateY(-2px); }
 .tx-booster-card h4{ margin:0; font-size:15px; font-weight:800; }
 
-/* ---------------- Responsive ---------------- */
+/* ============================================================
+   Responsive — PC ≥769px | Mobile ≤768px | Small ≤480px
+============================================================ */
+
+html, body{ overflow-x:hidden; }
+
+/* PC: 모바일 전용 요소 강제 숨김 */
+@media (min-width: 769px){
+  .hamburger{ display:none !important; }
+  .mobile-nav, .mobile-nav-overlay{ display:none !important; }
+  .mobile-cta{ display:none !important; }
+}
+
+/* 1024px 이하 — 그리드 보정만 (nav·hamburger 변경 없음) */
 @media (max-width: 1024px){
   .tx-v4-grid{ grid-template-columns:repeat(3,1fr); }
   .tx-booster-grid{ grid-template-columns:repeat(3,1fr); }
   .tx-botox-card{ grid-template-columns:1fr; gap:24px; padding:28px; }
-  .philosophy-inner{ grid-template-columns: 1fr; gap:40px; }
+  .philosophy-inner{ grid-template-columns:1fr; gap:40px; }
   .philosophy-text h2{ font-size:28px; }
-  .hero .wrap{ grid-template-columns: 1fr; padding-bottom:60px; }
-  .hero-visual{ order:-1; aspect-ratio: 16/9; }
-  .quick-info .grid{ grid-template-columns: repeat(2,1fr); }
-  .quick-info .item:nth-child(2){ border-right:none; }
-  .events-grid, .review-grid, .community-grid{ grid-template-columns: repeat(2,1fr); }
-  .tx-grid, .concern-grid{ grid-template-columns: repeat(3,1fr); }
-  .doctor-block{ grid-template-columns: 1fr; padding:32px; }
-  .doctor-photo{ max-width:220px; margin:0 auto; }
-  .location-block{ grid-template-columns: 1fr; }
-  .parking-grid{ grid-template-columns: 1fr; }
-  .branch-chip-grid{ grid-template-columns: repeat(3,1fr); }
+  .events-grid, .review-grid, .community-grid{ grid-template-columns:repeat(2,1fr); }
+  .tx-grid, .concern-grid{ grid-template-columns:repeat(3,1fr); }
+  .branch-chip-grid{ grid-template-columns:repeat(3,1fr); }
+}
+
+/* 768px 이하 — 모바일 */
+@media (max-width: 768px){
+  /* nav / hamburger */
   nav.main-nav{ display:none; }
   .hamburger{ display:flex; }
   .side-fab{ display:none; }
-  .mobile-cta{ display:flex; position:fixed; bottom:0; left:0; right:0; z-index:200; background:#fff; border-top:1px solid var(--c-line); padding:12px 16px; gap:10px; box-shadow: 0 -4px 20px rgba(0,0,0,.06); }
-  body{ padding-bottom:70px; }
-}
 
-@media (max-width: 640px){
+  /* topbar */
+  .topbar .links{ display:none; }
+  .topbar .tag{ white-space:nowrap; }
+  .topbar .wrap{ justify-content:flex-start; }
+
+  /* header */
+  .header-inner{ height:60px; gap:12px; }
+  .logo small{ display:none; }
+  .branch-switcher select{ min-width:120px; font-size:13px; padding:8px 28px 8px 14px; }
+
+  /* hero */
+  .hero .wrap{ grid-template-columns:1fr; padding-bottom:48px; }
+  .hero-visual{ order:-1; aspect-ratio:16/9; }
+  .hero h1{ font-size:34px; }
+  .hero h1 .branch-name{ font-size:44px; }
+  .hero-cta{ flex-wrap:wrap; gap:10px; }
+
+  /* quick info */
+  .quick-info{ margin-top:-30px; }
+  .quick-info .grid{ grid-template-columns:repeat(2,1fr); }
+  .quick-info .item:nth-child(2){ border-right:none; }
+
+  /* grids */
   .tx-v4-grid, .tx-v4-grid-3{ grid-template-columns:repeat(2,1fr); }
   .tx-v4-grid-2{ grid-template-columns:1fr; max-width:100%; }
   .tx-booster-grid{ grid-template-columns:repeat(2,1fr); }
-  .hero h1{ font-size:34px; }
-  .hero h1 .branch-name{ font-size:44px; }
-  .quick-info{ margin-top:-30px; }
-  .quick-info .grid{ grid-template-columns: 1fr; }
-  .quick-info .item{ border-bottom:1px solid var(--c-line); border-right:none; }
-  .events-grid, .review-grid, .community-grid{ grid-template-columns: 1fr; }
-  footer .flinks{ flex-wrap:wrap; gap:12px; }
-  .tx-grid, .concern-grid{ grid-template-columns: repeat(2,1fr); }
-  .concern-card .concern-desc{ min-height:auto; }
-  .branch-chip-grid{ grid-template-columns: repeat(2,1fr); }
+  .tx-grid, .concern-grid{ grid-template-columns:repeat(2,1fr); }
+  .events-grid, .review-grid, .community-grid{ grid-template-columns:1fr; }
+
+  /* doctor, location */
+  .doctor-block{ grid-template-columns:1fr; padding:28px; }
+  .doctor-photo{ max-width:200px; margin:0 auto; }
+  .location-block{ grid-template-columns:1fr; }
+  .parking-grid{ grid-template-columns:1fr; }
+
+  /* branch explorer */
+  .branch-chip-grid{ grid-template-columns:repeat(2,1fr); }
+  .branch-explorer{ padding:32px 20px; }
+
+  /* philosophy */
+  .philosophy-inner{ grid-template-columns:1fr; gap:32px; }
+  .philosophy-text h2{ font-size:26px; }
+
+  /* sections */
   section{ padding:56px 0; }
   .section-head h2{ font-size:24px; }
-  .branch-switcher select{ min-width:120px; font-size:13px; }
-  .header-actions .btn-primary{ display:none; }
-  .mobile-cta{ display:flex; position:fixed; bottom:0; left:0; right:0; z-index:200; background:#fff; border-top:1px solid var(--c-line); padding:12px 16px; gap:10px; box-shadow: 0 -4px 20px rgba(0,0,0,.06); }
-  body{ padding-bottom:70px; }
+  .section-head{ flex-direction:column; align-items:flex-start; }
+
+  /* footer */
+  footer .flinks{ flex-wrap:wrap; gap:12px; }
+
+  /* mobile CTA bar */
+  .mobile-cta{ display:flex; position:fixed; bottom:0; left:0; right:0; z-index:200; background:#fff; border-top:1px solid var(--c-line); padding:12px 16px; gap:10px; box-shadow:0 -4px 20px rgba(0,0,0,.06); }
+  body{ padding-bottom:72px; }
+}
+
+/* 480px 이하 — 소형 폰 */
+@media (max-width: 480px){
+  .wrap{ padding:0 16px; }
+  .hero h1{ font-size:30px; }
+  .hero h1 .branch-name{ font-size:38px; }
+  .hero-eyebrow{ font-size:11px; padding:5px 10px; }
+  .quick-info .grid{ grid-template-columns:1fr; }
+  .quick-info .item{ border-bottom:1px solid var(--c-line); border-right:none; }
+  .tx-v4-grid, .tx-v4-grid-3, .tx-v4-grid-2{ grid-template-columns:1fr; max-width:100%; }
+  .tx-booster-grid{ grid-template-columns:repeat(2,1fr); }
+  .location-info{ padding:20px 16px; }
+  .parking-card{ padding:20px 16px; }
+  section{ padding:48px 0; }
+  .section-head h2{ font-size:22px; }
 }

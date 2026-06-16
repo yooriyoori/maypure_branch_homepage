@@ -778,6 +778,8 @@ function toggleMobileNav() {
   if (nav.classList.contains('open')) {
     closeMobileNav();
   } else {
+    nav.style.display = 'block';
+    nav.getBoundingClientRect(); // force reflow so CSS transition fires
     nav.classList.add('open');
     overlay.classList.add('visible');
     btn.classList.add('open');
@@ -785,10 +787,14 @@ function toggleMobileNav() {
   }
 }
 function closeMobileNav() {
-  document.getElementById('mobileNav').classList.remove('open');
+  var nav = document.getElementById('mobileNav');
+  nav.classList.remove('open');
   document.getElementById('mobileNavOverlay').classList.remove('visible');
   document.getElementById('hamburgerBtn').classList.remove('open');
   document.body.style.overflow = '';
+  setTimeout(function() {
+    if (!nav.classList.contains('open')) nav.style.display = '';
+  }, 320);
 }
 function showTxTab(id, btn) {
   document.querySelectorAll('.tx-tab-pane').forEach(p => p.classList.remove('active'));
