@@ -35,6 +35,9 @@
       <a href="#location">오시는 길</a>
     </nav>
     <div class="header-actions">
+      <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
       <div class="branch-switcher">
         <select onchange="if(this.value) location.href=this.value;">
           <option value="">강남점 ▾ 다른 지점</option>
@@ -64,6 +67,29 @@
     </div>
   </div>
 </header>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
+
+<!-- MOBILE NAV DRAWER -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <a href="https://www.maypureclinic.com/" class="logo">maypure<span class="plus">+</span><small>BEAUTY CLINIC</small></a>
+    <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="메뉴 닫기">✕</button>
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#events" onclick="closeMobileNav()">이벤트</a>
+    <a href="#doctor" onclick="closeMobileNav()">의료진</a>
+    <a href="#treatments" onclick="closeMobileNav()">시술안내</a>
+    <a href="#reviews" onclick="closeMobileNav()">후기</a>
+    <a href="#community" onclick="closeMobileNav()">커뮤니티</a>
+    <a href="#location" onclick="closeMobileNav()">오시는 길</a>
+  </div>
+  <div class="mobile-nav-cta">
+    <a href="#" class="btn btn-mint btn-block">💬 카카오 1:1 상담</a>
+    <a href="#" class="btn btn-primary btn-block">⚡ 네이버 빠른예약</a>
+  </div>
+</nav>
 
 <!-- SIDE FLOATING ACTION BAR -->
 <div class="side-fab">
@@ -745,6 +771,25 @@
 </div>
 
 <script>
+function toggleMobileNav() {
+  var nav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileNavOverlay');
+  var btn = document.getElementById('hamburgerBtn');
+  if (nav.classList.contains('open')) {
+    closeMobileNav();
+  } else {
+    nav.classList.add('open');
+    overlay.classList.add('visible');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('mobileNavOverlay').classList.remove('visible');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+  document.body.style.overflow = '';
+}
 function showTxTab(id, btn) {
   document.querySelectorAll('.tx-tab-pane').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tx-tab-btn').forEach(b => b.classList.remove('active'));
